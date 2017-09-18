@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JQuery Not Conflict With Other Libraries</title>
+</head>
+<body>
+  <div id="jQuery">Hello, I am a jQuery div</div>
+  <div id="prototype">Hello, I am a Protype div</div>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.3/prototype.js"></script>
+<script type="text/JavaScript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/Javascript">
+  jQuery.noConflict();
+    jQuery(document).ready(function() {
+      jQuery("div#jQuery").css("font-weight", "bold");
+    });
+
+    document.observe("dom:loaded", function() {
+      $('prototype').setStyle({
+        fontSize: '10px'
+      });
+    });
+
+</script>
+</body>
+</html>
